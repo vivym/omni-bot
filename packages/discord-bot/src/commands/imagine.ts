@@ -71,12 +71,20 @@ export class ImagineCommand extends Command {
       interaction.options.getNumber('seed', false) ||
       Math.ceil(Math.random() * 1000000 + 1)
 
-    interaction.id
+    if (refImage) {
+      if (refImage.size > 8 * 1024 * 1024) {
+        await interaction.reply({
+          content: 'Reference Image must be smaller than 8MB',
+          ephemeral: true,
+        })
+        return
+      }
+    }
 
     const { task } = await trpc.task.pushPendingTask.mutate({
       channelId: interaction.channelId,
       userId: interaction.user.id,
-      msgId: interaction.id,
+      interactionId: interaction.id,
       prompt: prompt,
       stylePrompt: stylePrompt,
       refImage: refImage?.url,

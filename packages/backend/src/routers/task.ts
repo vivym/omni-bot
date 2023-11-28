@@ -11,7 +11,7 @@ export const taskRouter = router({
       z.object({
         channelId: z.string(),
         userId: z.string(),
-        msgId: z.string(),
+        interactionId: z.string(),
         prompt: z.string(),
         stylePrompt: z.string(),
         refImage: z.string().optional(),
@@ -27,7 +27,7 @@ export const taskRouter = router({
       const task = new TaskModel({
         channelId: input.channelId,
         userId: input.userId,
-        msgId: input.msgId,
+        interactionId: input.interactionId,
         prompt: input.prompt,
         stylePrompt: input.stylePrompt,
         refImage: input.refImage,
@@ -40,7 +40,7 @@ export const taskRouter = router({
         id: task._id.toString(),
         channelId: task.channelId,
         userId: task.userId,
-        msgId: task.msgId,
+        interactionId: task.interactionId,
         prompt: task.prompt,
         stylePrompt: task.stylePrompt,
         refImage: task.refImage,

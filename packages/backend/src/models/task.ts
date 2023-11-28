@@ -3,7 +3,7 @@ import mongoose, { Schema } from 'mongoose'
 export interface ITask {
   channelId: string
   userId: string
-  msgId: string
+  interactionId: string
   prompt: string
   stylePrompt?: string
   refImage?: string | undefined
@@ -36,7 +36,7 @@ const taskSchema = new Schema<ITaskDocment>(
       type: String,
       required: true,
     },
-    msgId: {
+    interactionId: {
       type: String,
       required: true,
     },
