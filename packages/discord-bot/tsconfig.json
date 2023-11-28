@@ -1,0 +1,36 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "outDir": "dist",
+    "module": "nodenext",
+    "target": "es2022",
+    "moduleResolution": "nodenext",
+    "resolveJsonModule": true,
+    "useUnknownInCatchVariables": true,
+    "allowUnreachableCode": false,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "importHelpers": false,
+    "typeRoots": ["node_modules/@types"],
+    "types": ["node"],
+    "sourceMap": true,
+    "strictPropertyInitialization": false,
+    "removeComments": true,
+    "useDefineForClassFields": true,
+    "declarationMap": false,
+    "declaration": false,
+    "allowSyntheticDefaultImports": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "paths": {
+      "@trpc/server/*": ["../backend/node_modules/@trpc/server/*"],
+      "fastify/*": ["../backend/node_modules/fastify/*"],
+      "zod/*":["../backend/node_modules/zod/*"],
+    }
+  },
+  "references": [
+    { "path": "../backend" },
+  ],
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules", "dist", "src/**/*.spec.ts"]
+}

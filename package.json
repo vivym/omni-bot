@@ -1,0 +1,43 @@
+{
+  "name": "omni-bot-project",
+  "version": "0.0.0",
+  "description": "",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev:backend": "tsx watch packages/backend/src",
+    "dev:discord-bot": "wait-port 3000 && tsx watch packages/discord-bot/src",
+    "dev:test": "wait-port 3000 && tsx watch packages/test/src",
+    "dev": "run-p dev:* --print-label",
+    "start": "node ./dist/packages/backend/src",
+    "lint": "eslint --fix --quiet */*.ts",
+    "format": "prettier --loglevel silent --write */*.ts",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage"
+  },
+  "author": "Ming Yang <ymviv@qq.com>",
+  "devDependencies": {
+    "@types/jest": "^29.5.10",
+    "@types/node": "^20.10.0",
+    "@typescript-eslint/eslint-plugin": "^6.12.0",
+    "@typescript-eslint/parser": "^6.12.0",
+    "eslint": "^8.54.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.1",
+    "jest": "^29.7.0",
+    "prettier": "^3.1.0",
+    "ts-jest": "^29.1.1",
+    "tsx": "4.5.0",
+    "typescript": "^5.3.2",
+    "wait-port": "1.1.0"
+  },
+  "engines": {
+    "node": ">=21.0.0",
+    "pnpm": ">=8.9.2"
+  },
+  "packageManager": "pnpm@8.9.2"
+}
