@@ -5,7 +5,7 @@ export interface ITask {
   userId: string
   interactionId: string
   prompt: string
-  stylePrompt?: string
+  stylePrompt: string
   refImage?: string | undefined
   negativePrompt?: string | undefined
   seed: number
